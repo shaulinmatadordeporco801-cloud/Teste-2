@@ -1,8 +1,13 @@
 {
-  "name": "timoteo-cloud",
-  "version": "1.0.0",
-  "dependencies": {
-    "chrome-aws-lambda": "10.1.0",
-    "puppeteer-core": "10.1.0"
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/rodar", "destination": "/api/rodar.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "functions": {
+    "api/rodar.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
   }
 }
