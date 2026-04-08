@@ -1,0 +1,7 @@
+/timoteo-cloud
+├── api/
+│   └── rodar.js       (O motor do robô)
+├── public/
+│   └── index.html     (Sua interface)
+├── package.json       (Configurações)
+└── vercel.json        (Ajustes de tempo)
