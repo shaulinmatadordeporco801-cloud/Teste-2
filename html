@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel Timóteo</title>
+    <style>body { background: #000; color: #8a2be2; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }</style>
+</head>
+<body>
+    <h1>TIMÓTEO CLOUD</h1>
+    <input type="text" id="user" placeholder="Usuário">
+    <input type="password" id="pass" placeholder="Senha">
+    <button onclick="iniciar()">DAR PARTIDA</button>
+    <p id="status"></p>
+
+    <script>
+        async function iniciar() {
+            document.getElementById('status').innerText = 'Processando...';
+            const res = await fetch('/api/rodar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario: user.value, senha: pass.value })
+            });
+            const data = await res.json();
+            document.getElementById('status').innerText = JSON.stringify(data);
+        }
+    </script>
+</body>
+</html>
